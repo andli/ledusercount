@@ -107,6 +107,7 @@ def countAndShowLeds():
 		#rainbowCycle(strip)
 		blank(strip)
 		if userCount > oldUserCount:
+			rainbowCycle(strip)
 			if oldUserCount > 0:
 				setLedRange(strip, 0, oldUserCount - 1)
 			#pulseTopSubset(oldUserCount, userCount - 1)
@@ -128,7 +129,7 @@ def wheel(pos):
 				return Color(0, pos * 3, 255 - pos * 3)
 
 				
-def rainbowCycle(strip, wait_ms=2, iterations=5):
+def rainbowCycle(strip, wait_ms=2, iterations=3):
 		"""Draw rainbow that uniformly distributes itself across all pixels."""
 		for j in range(256*iterations):
 				for i in range(strip.numPixels()):
