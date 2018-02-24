@@ -1,6 +1,6 @@
 # Usercounter
 
-Using a Blinkstick usb LED device this Discord bot shows how many of your friends are logged in to your Discord server.
+Using a WS2812 5050 RGB LED this Discord bot shows how many of your friends are logged in to your Discord server.
 
 * Shows a green LED up top when the bot is online but noone is logged in.
 * Excludes the channel ```AFK``` when counting users.
@@ -10,14 +10,11 @@ Using a Blinkstick usb LED device this Discord bot shows how many of your friend
 * Pip
 
 ```
-sudo pip install pyusb==1.0.0b1
-sudo pip install blinkstick
-sudo blinkstick --add-udev-rule
-pip3 install blinkstick discord
+TBD
 ```
 
 #### Running it
-Add your Discord bot token to the appropriate place in the bottom of the file.
+Add your Discord bot token to a text file called apikey.txt in the repo.
 ```
 python3 usercounter.py &
 ```
