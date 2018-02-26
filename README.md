@@ -19,4 +19,7 @@ Add your Discord bot token to a text file called apikey.txt in the repo.
 ```
 python3 usercounter.py &
 ```
-or add an `@reboot` line to crontab.
+or add an `@reboot` line to crontab:
+```
+sudo /usr/bin/python3 /home/pi/usercounter/usercounter-ws281x.py > /home/pi/cronjoblog 2>&1
+```
