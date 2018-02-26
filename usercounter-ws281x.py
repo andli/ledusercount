@@ -7,6 +7,7 @@
 # sudo python3 setup.py install
 # sudo python3 -m pip install discord.py
 
+import urllib.request, urllib.error
 import discord
 import asyncio
 from math import *
@@ -35,6 +36,17 @@ strip = None
 client = discord.Client()
 defaultColor = Color(18,18,18)
 userCount = 0
+
+
+def wait_for_internet_connection():
+	while True:
+		try:
+			response = urllib.request.urlopen('https://www.google.com')
+			#print(response)
+			return
+		except urllib.error.URLError as e:
+			print(e.reason)
+			pass
 
 
 @client.event
@@ -108,6 +120,7 @@ def countAndShowLeds():
 		blank(strip)
 		if userCount > oldUserCount:
 			rainbowCycle(strip)
+			blank(strip)
 			if oldUserCount > 0:
 				setLedRange(strip, 0, oldUserCount - 1)
 			#pulseTopSubset(oldUserCount, userCount - 1)
@@ -144,10 +157,11 @@ def blank(strip):
 				
 # Main program logic follows:
 if __name__ == '__main__':
+	wait_for_internet_connection()
 	# Create NeoPixel object with appropriate configuration.
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	# Intialize the library (must be called once before other functions)
 	strip.begin()
 	
-	apikey = open('apikey.txt').read().rstrip()
+	apikey = open('/home/pi/usercounter/apikey.txt').read().rstrip()
 	client.run(apikey)
