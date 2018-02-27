@@ -99,9 +99,13 @@ def setLedRange(strip, min, max):
 def setIndividualLed(ledNo, colorHex):
 	ledData = []
 	for i in range(7 + 1):
-		ledData.append([0, 0, 0])
+		ledData.append(Color(0, 0, 0))
 	ledData[ledNo * 3:ledNo * 3 + 3] = colorHex
-	bstick.set_led_data(channel=0, data=ledData)
+	pos = 0
+	for j in ledData:
+		strip.setPixelColor(pos, j)
+		pos += 1
+	strip.show()
 
 
 def countAndShowLeds():
@@ -126,8 +130,9 @@ def countAndShowLeds():
 			#pulseTopSubset(oldUserCount, userCount - 1)
 		setLedRange(strip, 0, userCount - 1)
 
-		#if userCount == 0:
-		#	setIndividualLed(7, [18, 0, 0])
+		if userCount == 0:
+			# Green
+			setIndividualLed(7, Color(18, 0, 0)) 
 
 			
 def wheel(pos):
