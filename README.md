@@ -2,6 +2,8 @@
 
 Using a WS2812 5050 RGB LED this Discord bot shows how many of your friends are logged in to your Discord server.
 
+[Imgur](https://i.imgur.com/EIKJVU9m.jpg)
+
 * Shows a red LED up top when the bot is online but noone is logged in.
 * Excludes the channel ```AFK``` when counting users.
 * Shows up to the maximum number of leds of the attached led strip.
