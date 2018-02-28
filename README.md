@@ -2,6 +2,8 @@
 
 Using a WS2812 5050 RGB LED this Discord bot shows how many of your friends are logged in to your Discord server.
 
+Solder the LED strip to pin 18, +5V and GND respectively.
+
 ![The device in action](https://i.imgur.com/EIKJVU9m.jpg)
 
 * Shows a red LED up top when the bot is online but noone is logged in.
