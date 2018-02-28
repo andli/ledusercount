@@ -2,19 +2,27 @@
 
 Using a WS2812 5050 RGB LED this Discord bot shows how many of your friends are logged in to your Discord server.
 
-* Shows a green LED up top when the bot is online but noone is logged in.
+* Shows a red LED up top when the bot is online but noone is logged in.
 * Excludes the channel ```AFK``` when counting users.
+* Shows up to the maximum number of leds of the attached led strip.
 
 #### Prerequisites
 * Python 3.4+
 * Pip
 
 ```
-TBD
+sudo apt install python3-pip -y
+sudo apt-get install build-essential python-dev git scons swig
+git clone https://github.com/jgarff/rpi_ws281x.git
+cd rpi_ws281x
+scons
+cd python
+sudo python3 setup.py install
+sudo python3 -m pip install discord.py
 ```
 
 #### Running it
-Set up a Discord bot
+Set up a Discord bot (Google for instructions if you don't know how).
 Add your Discord bot token to a text file called apikey.txt in the repo.
 ```
 python3 usercounter.py &
