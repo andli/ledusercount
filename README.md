@@ -11,12 +11,28 @@ Solder the LED strip to pin 18, +5V and GND respectively.
 * Excludes the channel ```AFK``` when counting users.
 * Shows up to the maximum number of leds of the attached led strip.
 
-#### Provisioning
+### Setting up your raspberry pi zero w
+Create two files in the `boot` partition, one empty called `ssh` and one called `wpa_supplicant.conf` with the following contents (edit to fit your network):
 ```
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="your_real_wifi_ssid"
+    scan_ssid=1
+    psk="your_real_password"
+    key_mgmt=WPA-PSK
+}
+```
+
+### Provisioning
+```
+sudo chmod +x provision.sh
 sudo ./provision.sh
 ```
 
-#### Running it
+### Running it
 Set up a Discord bot (Google for instructions if you don't know how).
 Add your Discord bot token to a text file called apikey.txt in the repo.
 ```

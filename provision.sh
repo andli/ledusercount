@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 apt update -y
 apt upgrade -y
