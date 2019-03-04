@@ -63,30 +63,6 @@ async def on_voice_state_update(before, after):
     countAndShowLeds()
 
 
-def pulseTopSubset(lowerLimit, upperLimit):
-    radsArray = []
-    repetitions = 3
-    fracs = 20
-    for fraction in range(fracs):
-        radsArray.append([pi * fraction / fracs])
-    radsArray.append([0, 0, 0])
-
-    for i in range(repetitions):
-        for angle in radsArray:
-            x = floor(sin(angle) * 255)
-            ledData = []
-            if lowerLimit > 0:
-                for i in range(lowerLimit):
-                    ledData.append(defaultColor)
-            for i in range(lowerLimit, upperLimit + 1):
-                ledData.append([0, 0, x])
-            if upperLimit < 7:
-                for i in range(upperLimit + 2, 8):
-                    ledData.append([0, 0, 0])
-            bstick.set_led_data(channel=0, data=ledData)
-            sleep(0.05)
-
-
 def setLedRange(strip, min, max):
     ledData = []
     for i in range(min):
@@ -127,7 +103,6 @@ def countAndShowLeds():
             blank(strip)
             if oldUserCount > 0:
                 setLedRange(strip, 0, oldUserCount - 1)
-            # pulseTopSubset(oldUserCount, userCount - 1)
         setLedRange(strip, 0, userCount - 1)
 
         if userCount == 0:

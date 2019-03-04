@@ -13,14 +13,7 @@ Solder the LED strip to pin 18, +5V and GND respectively.
 
 #### Provisioning
 ```
-sudo apt install python3-pip -y
-sudo apt-get install build-essential python-dev git scons swig
-git clone https://github.com/jgarff/rpi_ws281x.git
-cd rpi_ws281x
-scons
-cd python
-sudo python3 setup.py install
-sudo python3 -m pip install discord.py
+sudo ./provision.sh
 ```
 
 #### Running it
@@ -31,5 +24,5 @@ python3 usercounter.py &
 ```
 or add an `@reboot` line to crontab:
 ```
-sudo /usr/bin/python3 /home/pi/usercounter/usercounter-ws281x.py > /home/pi/cronjoblog 2>&1
+@reboot sudo /usr/bin/python3 /home/pi/ledusercounter/usercounter-ws281x.py > /home/pi/cronjoblog 2>&1
 ```
