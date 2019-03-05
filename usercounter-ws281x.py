@@ -156,5 +156,5 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions)
     strip.begin()
 
-    apikey = open('/home/pi/usercounter/apikey.txt').read().rstrip()
+    apikey = open('/home/pi/ledusercount/apikey.txt').read().rstrip()
     client.run(apikey)
