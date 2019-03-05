@@ -40,5 +40,5 @@ python3 usercounter.py &
 ```
 or add an `@reboot` line to crontab:
 ```
-@reboot sudo /usr/bin/python3 /home/pi/ledusercounter/usercounter-ws281x.py > /home/pi/cronjoblog 2>&1
+@reboot sudo /usr/bin/python3 /home/pi/ledusercount/usercounter-ws281x.py > /home/pi/cronjoblog 2>&1
 ```
