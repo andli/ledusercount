@@ -31,10 +31,10 @@ network={
 sudo chmod +x provision.sh
 sudo ./provision.sh
 ```
-
-### Running it
 Set up a Discord bot (Google for instructions if you don't know how).
 Add your Discord bot token to a text file called apikey.txt in the repo.
+
+### Running it
 ```
 python3 usercounter.py &
 ```
