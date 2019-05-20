@@ -8,8 +8,8 @@ from math import *
 from time import sleep
 import logging
 
-### Select your module here by uncommenting the correct one. 
-# Make sure to have used the corresponding provisioning script. 
+# Select your module here by uncommenting the correct one.
+# Make sure to have used the corresponding provisioning script.
 from modules import stdout as if_module
 #from modules import blinkstick as if_module
 #from modules import ws281x as if_module
@@ -26,6 +26,7 @@ logger.addHandler(handler)
 
 client = discord.Client()
 userCount = 0
+
 
 def wait_for_internet_connection():
     while True:
@@ -44,7 +45,7 @@ async def on_ready():
 
 
 @client.event
-async def on_voice_state_update(before, after):
+async def on_voice_state_update(member, before, after):
     countAndShowLeds()
 
 
@@ -55,13 +56,17 @@ def countAndShowLeds():
 
     for channel in client.get_all_channels():
         if channel.name != 'AFK':
-            userCount += len(channel.voice_members)
+            print('channel: '+channel.name)
+            print(channel.members)
+            if channel._type == discord.ChannelType.voice.value:
+                userCount += len(channel.members)
 
     interface_module.updateLeds(userCount, oldUserCount)
+
 
 # Main program logic follows:
 if __name__ == '__main__':
     wait_for_internet_connection()
 
-    apikey = open('/home/pi/ledusercount/apikey.txt').read().rstrip()
+    apikey = open('apikey.txt').read().rstrip()
     client.run(apikey)
