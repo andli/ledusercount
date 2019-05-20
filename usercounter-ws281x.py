@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # sudo apt install python3-pip -y
 # sudo apt-get install build-essential python-dev git scons swig
 # git clone https://github.com/jgarff/rpi_ws281x.git
