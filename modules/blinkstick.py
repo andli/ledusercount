@@ -6,7 +6,8 @@ from math import floor
 from math import sin
 from math import pi
 
-class blinkstick_module:
+
+class bot_interface_module:
 
     DEFAULT_COLOR = [18, 18, 18]
 
@@ -32,7 +33,6 @@ class blinkstick_module:
         for i in range(min, max + 1):
             ledData.extend(self.DEFAULT_COLOR)
         self.bstick.set_led_data(channel=0, data=ledData)
-
 
     def __setIndividualLed(self, ledNo, colorHex):
         ledData = []
