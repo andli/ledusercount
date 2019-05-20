@@ -2,6 +2,8 @@
 
 Using a for example a WS2812 5050 RGB LED this Discord bot shows how many of your friends are logged in to your Discord server. Excludes the channel ```AFK``` when counting users.
 
+Tested and confirmed working with [`discord.py`](https://discordpy.readthedocs.io/en/latest/index.html) version 1.1.1.
+
 ### Supported modules
 * `stdout` (for testing)
 * WS281x
