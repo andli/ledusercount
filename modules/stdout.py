@@ -6,4 +6,5 @@ class bot_interface_module:
         pass
     
     def updateLeds(self, userCount, oldUserCount):
-        print("Old userCount = {}, new userCount = {}".format(oldUserCount, userCount))
+        if userCount != oldUserCount:
+            print("Old userCount = {}, new userCount = {}".format(oldUserCount, userCount))

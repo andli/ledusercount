@@ -56,8 +56,6 @@ def countAndShowLeds():
 
     for channel in client.get_all_channels():
         if channel.name != 'AFK':
-            print('channel: '+channel.name)
-            print(channel.members)
             if channel._type == discord.ChannelType.voice.value:
                 userCount += len(channel.members)
 
