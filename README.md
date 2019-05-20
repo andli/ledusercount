@@ -43,6 +43,8 @@ sudo ./provision_<CHOOSE_VARIANT>.sh
 Set up a Discord bot (Google for instructions if you don't know how).
 Add your Discord bot token to a text file called apikey.txt in the repo.
 
+Set your preferred output module at line `13` in `usercounter.py`.
+
 # Running it
 ```
 python3 usercounter.py &
