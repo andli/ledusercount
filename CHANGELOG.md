@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2019-05-21
 ### Added
 - Module support for different kinds of outputs.
+- `cronjob` script
 
 ### Changed
 - Refactored and split the discord bot from the visual output modules.

@@ -11,9 +11,11 @@ Tested and confirmed working with [`discord.py`](https://discordpy.readthedocs.i
 
 ## Example: the WS2811
 
+![Wiring](wires.jpg)
+
 Solder the LED strip to pin 18, +5V and GND respectively.
 
-![The device in action](https://i.imgur.com/EIKJVU9m.jpg)
+![The device in action](case.jpg)
 
 * Shows a red LED up top when the bot is online but noone is logged in.
 * Flashes leds when a new user joins.
@@ -49,7 +51,7 @@ Set your preferred output module at line `13` in `usercounter.py`.
 ```
 python3 usercounter.py &
 ```
-or add an `@reboot` line to crontab:
+or add an `@reboot` line to crontab (using the provided `add_cronjob.sh`):
 ```
 @reboot sudo /usr/bin/python3 /home/pi/ledusercount/usercounter.py > /home/pi/cronjoblog 2>&1
 ```
