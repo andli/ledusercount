@@ -10,9 +10,9 @@ import logging
 
 # Select your module here by uncommenting the correct one.
 # Make sure to have used the corresponding provisioning script.
-from modules import stdout as if_module
+#from modules import stdout as if_module
 #from modules import blinkstick as if_module
-#from modules import ws281x as if_module
+from modules import ws281x as if_module
 
 interface_module = if_module.bot_interface_module()
 
@@ -56,7 +56,7 @@ def countAndShowLeds():
 
     for channel in client.get_all_channels():
         if channel.name != 'AFK':
-            if channel._type == discord.ChannelType.voice.value:
+            if channel.type == discord.ChannelType.voice:
                 userCount += len(channel.members)
 
     interface_module.updateLeds(userCount, oldUserCount)
